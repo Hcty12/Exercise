@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+double calculate(double num1, double num2, char op) {
+    double result;
+    switch (op) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            if (num2 != 0) {
+                result = num1 / num2;
+            } else {
+                cout << "Error: تقسیم بر صفر!" << endl;
+                result = 0;
+            }
+            break;
+        default:
+            cout << "Error: عملیات نامعتبر!" << endl;
+            result = 0;
+    }
+    return result;
+}
+
+int main() {
+    double num1, num2;
+    char op;
+
+    cout << "لطفا عدد اول، عملگر (+, -, *, /) و عدد دوم را وارد کنید: ";
+    cin >> num1 >> op >> num2;
+
+    double result = calculate(num1, num2, op);
+    cout << "نتیجه: " << result << endl;
+
+    return 0;
+}
