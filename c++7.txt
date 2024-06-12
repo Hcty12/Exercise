@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+const double PI = 3.14159;
+
+void calculateCircle(double radius) {
+    double circumference = 2 * PI * radius;
+    double area = PI * radius * radius;
+
+    cout << "محیط دایره با شعاع " << radius << " و برابر با " << circumference << " است." << endl;
+    cout << "مساحت دایره با شعاع " << radius << " و برابر با " << area << " است." << endl;
+}
+
+int main() {
+    double radius;
+    cout << "لطفا شعاع دایره را وارد کنید: ";
+    cin >> radius;
+
+    calculateCircle(radius);
+
+    return 0;
+}
