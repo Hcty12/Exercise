@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int g[10] = {80, 85, 90, 75, 88, 92, 78, 87, 84, 89};
+    int w[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    // محاسبه معدل وزنی
+    double weighted_sum = 0;
+    double weight_sum = 0;
+    for (int i = 0; i < 10; i++) {
+        weighted_sum += g[i] * w[i];
+        weight_sum += w[i];
+    }
+    double weighted_avg = weighted_sum / weight_sum;
+
+    // بالاترین نمره
+    int max_grade = g[0];
+    for (int i = 1; i < 10; i++) {
+        if (g[i] > max_grade) {
+            max_grade = g[i];
+        }
+    }
+
+    // نمره‌ای که تاثیر بیشتری دارد
+    int max_weight = w[0];
+    for (int i = 1; i < 10; i++) {
+        if (w[i] > max_weight) {
+            max_weight = w[i];
+        }
+    }
+
+    cout << "معدل وزنی: " << weighted_avg << endl;
+    cout << "بالاترین نمره: " << max_grade << endl;
+    cout << "نمره‌ای که تاثیر بیشتری دارد: " << max_weight << endl;
+
+    return 0;
+}
