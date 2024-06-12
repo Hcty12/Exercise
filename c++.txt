@@ -1,0 +1,79 @@
+include <iostream>
+using namespace std;
+
+int factorial(int n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return n * factorial(n-1);
+    }
+}
+
+int power(int x, int y) {
+    int result = 1;
+    for (int i = 0; i < y; i++) {
+        result *= x;
+    }
+    return result;
+}
+
+int fibonacci(int n) {
+    if (n <= 1) {
+        return n;
+    } else {
+        return fibonacci(n-1) + fibonacci(n-2);
+    }
+}
+
+int multiplication(int x, int y) {
+    return x * y;
+}
+
+int main() {
+    int choice;
+    cout << "کدام تابع را می‌خواهید اجرا کنید؟ (1: factorial, 2: power, 3: fibonacci, 4: multiplication): ";
+    cin >> choice;
+
+    switch (choice) {
+        case 1:
+            int num1;
+            cout << "عدد مورد نظر را وارد کنید: ";
+            cin >> num1;
+            cout << "حاصل عدد فاکتوریل " << num1 << " برابر است با: " << factorial(num1) << endl;
+            break;
+
+        case 2:
+            int base, exponent;
+            cout << "پایه را وارد کنید: ";
+            cin >> base;
+            cout << "توان را وارد کنید: ";
+            cin >> exponent;
+            cout << "حاصل عملیات " << base << " به توان " << exponent << " برابر است با: " << power(base, exponent) << endl;
+            break;
+
+        case 3:
+            int num2;
+            cout << "تعداد عناصر دنباله فیبوناچی را وارد کنید: ";
+            cin >> num2;
+            cout << "سری فیبوناچی:" << endl;
+            for (int i = 0; i < num2; i++) {
+                cout << fibonacci(i) << " ";
+            }
+            cout << endl;
+            break;
+
+        case 4:
+            int num3, num4;
+            cout << "عدد اول را وارد کنید: ";
+            cin >> num3;
+            cout << "عدد دوم را وارد کنید: ";
+            cin >> num4;
+            cout << "حاصل ضرب " << num3 << " در " << num4 << " برابر است با: " << multiplication(num3, num4) << endl;
+            break;
+
+        default:
+            cout << "ورودی نامعتبر!" << endl;
+    }
+
+    return 0;
+}
