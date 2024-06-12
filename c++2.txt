@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int SIZE = 9;
+    int input;
+    int counts[SIZE] = {0};
+
+    while (true) {
+        cout << "لطفا یک عدد بین ۱ تا ۹ وارد کنید (برای خروج 0 را وارد کنید): ";
+        cin >> input;
+
+        if (input == 0) {
+            break;
+        }
+
+        if (input >= 1 && input <= 9) {
+            counts[input-1]++;
+        } else {
+            cout << "ورودی نامعتبر!" << endl;
+        }
+    }
+
+    int maxIndex = 0;
+    int minIndex = 0;
+
+    for (int i = 1; i < SIZE; i++) {
+        if (counts[i] > counts[maxIndex]) {
+            maxIndex = i;
+        }
+        if (counts[i] < counts[minIndex]) {
+            minIndex = i;
+        }
+    }
+
+    cout << "تعداد تکرار هر عدد:" << endl;
+    for (int i = 0; i < SIZE; i++) {
+        cout << "عدد " << (i+1) << ": " << counts[i] << " بار" << endl;
+    }
+
+    cout << "بیشترین تکرار: عدد " << (maxIndex+1) << " با " << counts[maxIndex] << " بار" << endl;
+    cout << "کمترین تکرار: عدد " << (minIndex+1) << " با " << counts[minIndex] << " بار" << endl;
+
+    return 0;
+}
