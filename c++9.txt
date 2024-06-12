@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+void reverseNumber(int n) {
+    if (n < 10) {
+        cout << n;
+    } else {
+        cout << n % 10;
+        reverseNumber(n / 10);
+    }
+}
+
+int main() {
+    int number;
+    cout << "لطفا یک عدد صحیح وارد کنید: ";
+    cin >> number;
+
+    cout << "عدد برعکس: ";
+    if (number < 0) {
+        cout << "-";
+        number = -number;
+    }
+    reverseNumber(number);
+
+    return 0;
+}
