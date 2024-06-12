@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+bool isDigit(char c) {
+    return (c >= '0' && c <= '9');
+}
+
+int main() {
+    char input;
+    cout << "لطفا یک کاراکتر را وارد کنید: ";
+    cin >> input;
+
+    if (isDigit(input)) {
+        cout << "کاراکتر وارد شده یک عدد است." << endl;
+    } else {
+        cout << "کاراکتر وارد شده عدد نیست." << endl;
+    }
+
+    return 0;
+}
