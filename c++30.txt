@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+
+struct Car {
+    std::string brand;
+    std::string model;
+    int distanceDriven;
+
+    void drive(int kilometers) {
+        distanceDriven += kilometers;
+    }
+
+    void showData() {
+        std::cout << "Brand: " << brand << "\n";
+        std::cout << "Model: " << model << "\n";
+        std::cout << "Distance driven: " << distanceDriven << "km\n";
+    }
+};
+
+int main() {
+    Car myCar;
+    myCar.brand = "Iran Khodro";
+    myCar.model = "Dena";
+    myCar.distanceDriven = 100;
+
+    // Increase distance driven
+    myCar.drive(100);
+
+    // Display car data
+    myCar.showData();
+
+    return 0;
+}
