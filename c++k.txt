@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+
+class RestaurantSystem {
+private:
+    std::string menu;
+    double revenue;
+
+public:
+    RestaurantSystem() : menu("Burger, Pizza, Salad"), revenue(0.0) {}
+
+    void printMenu() {
+        std::cout << "Menu: " << menu << std::endl;
+    }
+
+    void takeOrder(std::string item, double price) {
+        std::cout << "Adding " << item << " to the order" << std::endl;
+        revenue += price;
+    }
+
+    void printRevenue() {
+        std::cout << "Total revenue: $" << revenue << std::endl;
+    }
+};
+
+int main() {
+    RestaurantSystem restaurant;
+
+    restaurant.printMenu();
+
+    std::string order;
+    double price;
+
+    std::cout << "Enter the item you want to order: ";
+    std::cin >> order;
+    std::cout << "Enter the price of the item: $";
+    std::cin >> price;
+
+    restaurant.takeOrder(order, price);
+
+    restaurant.printRevenue();
+
+    return 0;
+}
