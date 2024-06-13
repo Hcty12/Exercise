@@ -1,0 +1,22 @@
+#include <iostream>
+
+int main() {
+    double x1, y1, x2, y2;
+    double a, b;
+
+    std::cout << "Enter the coordinates of the first point (x1, y1): ";
+    std::cin >> x1 >> y1;
+    std::cout << "Enter the coordinates of the second point (x2, y2): ";
+    std::cin >> x2 >> y2;
+
+    // Calculate the slope (a)
+    if (x1 != x2) {
+        a = (y2 - y1) / (x2 - x1);
+        b = y1 - a * x1;
+        std::cout << "The equation of the line passing through the points (" << x1 << ", " << y1 << ") and (" << x2 << ", " << y2 << ") is: y = " << a << "x + " << b << std::endl;
+    } else {
+        std::cout << "The line passing through the points (" << x1 << ", " << y1 << ") and (" << x2 << ", " << y2 << ") is vertical and its equation is: x = " << x1 << std::endl;
+    }
+
+    return 0;
+}
