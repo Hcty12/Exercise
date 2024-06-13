@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    int n;
+    std::cout << "Enter the number of elements: ";
+    std::cin >> n;
+
+    std::vector<int> numbers(n);
+
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter element " << i + 1 << ": ";
+        std::cin >> numbers[i];
+    }
+
+    int min_num = *min_element(numbers.begin(), numbers.end());
+    int max_num = *max_element(numbers.begin(), numbers.end());
+
+    std::cout << "The smallest number is: " << min_num << std::endl;
+    std::cout << "The largest number is: " << max_num << std::endl;
+
+    return 0;
+}
