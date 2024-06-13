@@ -1,0 +1,15 @@
+#include <iostream>
+
+int main() {
+    double n1, n2, n3;
+    double w1, w2, w3;
+    
+    std::cout << "Enter three grades and their weights: ";
+    std::cin >> n1 >> w1 >> n2 >> w2 >> n3 >> w3;
+    
+    double weightedAverage = (n1 * w1 + n2 * w2 + n3 * w3) / (w1 + w2 + w3);
+    
+    std::cout << "Weighted average grade: " << weightedAverage << std::endl;
+    
+    return 0;
+}
