@@ -1,0 +1,92 @@
+#include <iostream>
+
+class Calculator {
+public:
+    void run() {
+        char operation;
+        std::cout << "Enter the operation (+, -, *, /, ^): ";
+        std::cin >> operation;
+
+        switch (operation) {
+            case '+':
+                addition();
+                break;
+            case '-':
+                subtraction();
+                break;
+            case '*':
+                multiplication();
+                break;
+            case '/':
+                division();
+                break;
+            case '^':
+                power();
+                break;
+            default:
+                std::cout << "Error: Invalid operation entered.\n";
+        }
+    }
+
+private:
+    void getInput(int &a, int &b) {
+        std::cout << "Enter two numbers: ";
+        std::cin >> a >> b;
+    }
+
+    void addition() {
+        int a, b;
+        getInput(a, b);
+        std::cout << "Result: " << a + b << "\n";
+    }
+
+    void subtraction() {
+        int a, b;
+        getInput(a, b);
+        std::cout << "Result: " << a - b << "\n";
+    }
+
+    void multiplication() {
+        int a, b;
+        getInput(a, b);
+        std::cout << "Result: " << a * b << "\n";
+    }
+
+    void division() {
+        int a, b;
+        getInput(a, b);
+        if (b != 0) {
+            std::cout << "Result: " << a / b << "\n";
+        } else {
+            std::cout << "Error: Division by zero is not allowed.\n";
+        }
+    }
+
+    int recursivePower(int base, int exponent) {
+        if (exponent == 0) {
+            return 1;
+        } else {
+            return base * recursivePower(base, exponent - 1);
+        }
+    }
+
+    void power() {
+        int base, exponent;
+        std::cout << "Enter base and exponent: ";
+        std::cin >> base >> exponent;
+        
+        if (exponent < 0) {
+            std::cout << "Error: Negative exponent is not supported.\n";
+            return;
+        }
+        
+        std::cout << "Result: " << recursivePower(base, exponent) << "\n";
+    }
+};
+
+int main() {
+    Calculator calculator;
+    calculator.run();
+
+    return 0;
+}
