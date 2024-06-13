@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+#include <regex>
+
+int main() {
+    std::string email;
+    std::cout << "Enter your email address: ";
+    std::cin >> email;
+
+    std::regex pattern(R"([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})");  // الگوی تطابق برای ایمیل
+
+    if (std::regex_match(email, pattern)) {
+        std::cout << "Valid email address\n";
+    } else {
+        std::cout << "Invalid email address\n";
+    }
+
+    return 0;
+}
