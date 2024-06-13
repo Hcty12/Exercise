@@ -1,0 +1,32 @@
+#include <iostream>
+#include <regex>
+#include <string>
+
+int main() {
+    std::string cardNumber;
+    std::cout << "Enter the card number: ";
+    std::cin >> cardNumber;
+
+    // بررسی معتبر بودن شماره کارت
+    std::regex cardRegex("^(\\d{4}-){3}\\d{4}$");
+    if (!std::regex_match(cardNumber, cardRegex)) {
+        std::cout << "Invalid card number format" << std::endl;
+        return 1;
+    }
+
+    // تشخیص بانک متعلقه
+    std::string bankName;
+    if (cardNumber.substr(0, 4) == "6037") {
+        bankName = "Melli";
+    } else if (cardNumber.substr(0, 4) == "6274") {
+        bankName = "Tejarat";
+    } else {
+        bankName = "Unknown";
+    }
+
+    // چاپ اطلاعات
+    std::cout << "CARD:" << cardNumber << std::endl;
+    std::cout << "BANK:" << bankName << std::endl;
+
+    return 0;
+}
