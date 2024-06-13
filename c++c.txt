@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+
+class Dog {
+private:
+    std::string name;
+    int birthYear;
+    int age;
+    int trainingScore;
+
+public:
+    Dog(std::string dogName, int year) : name(dogName), birthYear(year), age(2022 - year), trainingScore(0) {}
+
+    void bark() {
+        std::cout << name << " is barking!" << std::endl;
+    }
+
+    void train(int score) {
+        trainingScore += score;
+        std::cout << name << " received " << score << " training score. Total score: " << trainingScore << std::endl;
+    }
+
+    void printInfo() {
+        std::cout << "Name: " << name << ", Age: " << age << ", Training Score: " << trainingScore << std::endl;
+    }
+};
+
+int main() {
+    std::string dogName;
+    int birthYear;
+    std::cout << "Enter the dog's name: ";
+    std::cin >> dogName;
+    std::cout << "Enter the dog's birth year: ";
+    std::cin >> birthYear;
+
+    Dog myDog(dogName, birthYear);
+
+    int score;
+    while (true) {
+        std::cout << "Enter the training score for " << myDog.name << " (or 0 to finish): ";
+        std::cin >> score;
+        if (score == 0) {
+            break;
+        }
+        myDog.train(score);
+    }
+
+    myDog.printInfo();
+
+    return 0;
+}
