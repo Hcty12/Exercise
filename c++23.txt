@@ -1,0 +1,28 @@
+#include <iostream>
+
+int main() {
+    double average;
+    
+    std::cout << "Enter the average: ";
+    std::cin >> average;
+    
+    if (average >= 17 && average <= 20) {
+        std::cout << "Your grade is: A" << std::endl;
+    } else if (average >= 14 && average < 17) {
+        std::cout << "Your grade is: B" << std::endl;
+    } else if (average >= 10 && average < 14) {
+        std::cout << "Your grade is: C" << std::endl;
+    } else if (average >= 0 && average < 10) {
+        std::cout << "Your grade is: D" << std::endl;
+    } else {
+        std::cout << "Invalid average!" << std::endl;
+    }
+    
+    if (average >= 10 && average < 17) {
+        std::cout << "You are on probation." << std::endl;
+    } else {
+        std::cout << "You are not on probation." << std::endl;
+    }
+    
+    return 0;
+}
