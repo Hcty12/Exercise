@@ -1,45 +1,60 @@
 #include <iostream>
-using namespace std;
+
+int power(int base, int exponent) {
+    if (exponent == 0) {
+        return 1;
+    } else {
+        return base * power(base, exponent - 1);
+    }
+}
+
+int factorial(int n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+int fibonacci(int n) {
+    if (n <= 1) {
+        return n;
+    } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
 
 int main() {
-    const int SIZE = 9;
-    int input;
-    int counts[SIZE] = {0};
+    int choice;
+    std::cout << "Enter 1 for power, 2 for factorial, or 3 for Fibonacci: ";
+    std::cin >> choice;
 
-    while (true) {
-        cout << "لطفا یک عدد بین ۱ تا ۹ وارد کنید (برای خروج 0 را وارد کنید): ";
-        cin >> input;
+    int result, base, exponent, number;
 
-        if (input == 0) {
+    switch (choice) {
+        case 1:
+            std::cout << "Enter base: ";
+            std::cin >> base;
+            std::cout << "Enter exponent: ";
+            std::cin >> exponent;
+            result = power(base, exponent);
+            std::cout << "Result: " << result << std::endl;
             break;
-        }
-
-        if (input >= 1 && input <= 9) {
-            counts[input-1]++;
-        } else {
-            cout << "ورودی نامعتبر!" << endl;
-        }
+        case 2:
+            std::cout << "Enter a number to calculate factorial: ";
+            std::cin >> number;
+            result = factorial(number);
+            std::cout << "Result: " << result << std::endl;
+            break;
+        case 3:
+            std::cout << "Enter a number to calculate Fibonacci: ";
+            std::cin >> number;
+            result = fibonacci(number);
+            std::cout << "Result: " << result << std::endl;
+            break;
+        default:
+            std::cout << "Invalid choice!" << std::endl;
     }
-
-    int maxIndex = 0;
-    int minIndex = 0;
-
-    for (int i = 1; i < SIZE; i++) {
-        if (counts[i] > counts[maxIndex]) {
-            maxIndex = i;
-        }
-        if (counts[i] < counts[minIndex]) {
-            minIndex = i;
-        }
-    }
-
-    cout << "تعداد تکرار هر عدد:" << endl;
-    for (int i = 0; i < SIZE; i++) {
-        cout << "عدد " << (i+1) << ": " << counts[i] << " بار" << endl;
-    }
-
-    cout << "بیشترین تکرار: عدد " << (maxIndex+1) << " با " << counts[maxIndex] << " بار" << endl;
-    cout << "کمترین تکرار: عدد " << (minIndex+1) << " با " << counts[minIndex] << " بار" << endl;
 
     return 0;
 }
