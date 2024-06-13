@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string password;
+    std::string input;
+
+    std::cout << "Enter the password: ";
+    std::cin >> password;
+
+    while (true) {
+        std::cout << "Enter the password: ";
+        std::cin >> input;
+
+        if (input == password) {
+            std::cout << "Correct password. Access granted." << std::endl;
+            break;
+        } else {
+            std::cout << "Incorrect password. Try again." << std::endl;
+        }
+    }
+
+    return 0;
+}
