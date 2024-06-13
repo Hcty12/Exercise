@@ -1,0 +1,44 @@
+#include <iostream>
+
+int main() {
+    int a, b;
+    
+    std::cout << "Enter the first number (a): ";
+    std::cin >> a;
+    std::cout << "Enter the second number (b): ";
+    std::cin >> b;
+    
+    if (a > b) {
+        std::cout << "a is greater than b." << std::endl;
+    } else if (a < b) {
+        std::cout << "b is greater than a." << std::endl;
+    } else {
+        std::cout << "a and b are equal." << std::endl;
+    }
+    
+    if (a > 0 && b > 0) {
+        std::cout << "Both a and b are positive." << std::endl;
+    } else if (a < 0 && b < 0) {
+        std::cout << "Both a and b are negative." << std::endl;
+    } else if (a == 0 && b == 0) {
+        std::cout << "Both a and b are zero." << std::endl;
+    }
+    
+    if (a > 0) {
+        std::cout << "a is positive." << std::endl;
+    } else if (a < 0) {
+        std::cout << "a is negative." << std::endl;
+    } else {
+        std::cout << "a is zero." << std::endl;
+    }
+    
+    if (b > 0) {
+        std::cout << "b is positive." << std::endl;
+    } else if (b < 0) {
+        std::cout << "b is negative." << std::endl;
+    } else {
+        std::cout << "b is zero." << std::endl;
+    }
+    
+    return 0;
+}
